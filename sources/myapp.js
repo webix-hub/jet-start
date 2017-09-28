@@ -10,6 +10,6 @@ webix.ready(() => {
 	});
 	app.render();
 	app.attachEvent("app:error:resolve", function(name, error){
-		console.error(error);
-	})
+		window.console.error(error);
+	});
 });
