@@ -3,7 +3,12 @@ var webpack = require("webpack");
 
 module.exports = function(env) {
 
+	var pack = require("./package.json");
 	var ExtractTextPlugin = require("extract-text-webpack-plugin");
+	var production = !!(env && env.production === "true");
+	var babelSettings = {
+		extends: path.join(__dirname, '/.babelrc')
+	};
 
 	var config = {
 		entry: "./sources/myapp.js",
@@ -17,7 +22,7 @@ module.exports = function(env) {
 			rules: [
 				{
 					test: /\.js$/,
-					loader: "babel-loader"
+					loader: "babel-loader?" + JSON.stringify(babelSettings)
 				},
 				{
 					test: /\.(svg|png|jpg|gif)$/,
@@ -38,7 +43,12 @@ module.exports = function(env) {
 			}
 		},
 		plugins: [
-			new ExtractTextPlugin("./myapp.css")
+			new ExtractTextPlugin("./myapp.css"),
+			new webpack.DefinePlugin({
+				VERSION: `"${pack.version}"`,
+				APPNAME: `"${pack.name}"`,
+				PRODUCTION : production
+			})
 		]
 	};
 

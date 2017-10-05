@@ -13,8 +13,8 @@ export default class TopView extends JetView{
 			width:180, layout:"y", select:true,
 			template:"<span class='webix_icon fa-#icon#'></span> #value# ",
 			data:[
-				{ value:"DashBoard", 		id:"start",		href:"#!/top/start", 		icon:"envelope-o" },
-				{ value:"Data", 			id:"data",		href:"#!/top/data", 		icon:"briefcase" }
+				{ value:"DashBoard", id:"start", icon:"envelope-o" },
+				{ value:"Data",		 id:"data",  icon:"briefcase" }
 			]
 		};
 
