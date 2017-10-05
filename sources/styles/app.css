@@ -8,14 +8,16 @@
 
 /*data loading status*/
 .status_good, .status_error, .status_saving{
-	text-align: center;
-	margin-left:-12px;
+	color: #eee;
 }
 .status_error{
-	color:red;
+	color:#FFCDCD;
 }
-.status_good{
-	color:green;
+.status_area{
+	background: transparent;
+}
+.status_area .webix_icon{
+	width: 16px;
 }
 
 /*login form*/
@@ -96,10 +98,4 @@
 }
 .app-right-panel .webix_layout_wide{
 	background: #fff;
-}
-
-
-/* sync status */
-.status_good{
-	color:#ddd;
 }

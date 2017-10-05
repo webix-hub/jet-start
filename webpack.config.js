@@ -42,6 +42,11 @@ module.exports = function(env) {
 				"jet-locales":path.resolve(__dirname, "sources/locales")
 			}
 		},
+		devServer:{
+			proxy:{
+				"/server" : "http://localhost/webix/jet/jet-start/"
+			}
+		},
 		plugins: [
 			new ExtractTextPlugin("./myapp.css"),
 			new webpack.DefinePlugin({
