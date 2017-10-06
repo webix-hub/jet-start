@@ -52,7 +52,7 @@ module.exports = function(env) {
 		]
 	};
 
-	if (env && env.compress === "true") {
+	if (production) {
 		config.plugins.push(
 			new  webpack.optimize.UglifyJsPlugin({
 				test: /\.js$/
