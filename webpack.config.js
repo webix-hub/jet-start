@@ -6,12 +6,9 @@ module.exports = function(env) {
 	var pack = require("./package.json");
 	var ExtractTextPlugin = require("extract-text-webpack-plugin");
 	var production = !!(env && env.production === "true");
-	var babelSettings = {
-		extends: path.join(__dirname, '/.babelrc')
-	};
 
 	var config = {
-		entry: "./sources/myapp.js",
+		entry: "./sources/myapp.ts",
 		output: {
 			path: path.join(__dirname, "codebase"),
 			publicPath:"/codebase/",
@@ -21,8 +18,8 @@ module.exports = function(env) {
 		module: {
 			rules: [
 				{
-					test: /\.js$/,
-					loader: "babel-loader?" + JSON.stringify(babelSettings)
+					test: /\.ts$/,
+					loader: "ts-loader"
 				},
 				{
 					test: /\.(svg|png|jpg|gif)$/,
@@ -35,7 +32,7 @@ module.exports = function(env) {
 			]
 		},
 		resolve: {
-			extensions: [".js"],
+			extensions: [".ts", ".js"],
 			modules: ["./sources", "node_modules"],
 			alias:{
 				"jet-views":path.resolve(__dirname, "sources/views"),

@@ -1,5 +1,6 @@
-import {JetView} from "webix-jet";
 import {data} from "models/records";
+import {JetView} from "webix-jet";
+
 
 export default class DataView extends JetView{
 	config(){
