@@ -5,11 +5,8 @@ webix.ready(() => {
 	var app = new JetApp({
 		id:			APPNAME,
 		version:	VERSION,
-		start:		"/top/start"
+        start: "/top/start",
+        debug:true
 	});
 	app.render();
-
-	app.attachEvent("app:error:resolve", function(name, error){
-		window.console.error(error);
-	});
 });

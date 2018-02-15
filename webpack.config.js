@@ -11,11 +11,13 @@ module.exports = function(env) {
 	};
 
 	var config = {
-		entry: "./sources/myapp.js",
+		entry: {
+			"myapp": "./ClientApp/myapp.js",
+		},
 		output: {
-			path: path.join(__dirname, "codebase"),
-			publicPath:"/codebase/",
-			filename: "myapp.js"
+			path: path.join(__dirname, "wwwroot", "dist"),
+			publicPath:"/wwwroot/dist/",
+			filename: "[name].js"
 		},
 		devtool: "inline-source-map",
 		module: {
@@ -36,10 +38,10 @@ module.exports = function(env) {
 		},
 		resolve: {
 			extensions: [".js"],
-			modules: ["./sources", "node_modules"],
+			modules: ["./ClientApp", "node_modules"],
 			alias:{
-				"jet-views":path.resolve(__dirname, "sources/views"),
-				"jet-locales":path.resolve(__dirname, "sources/locales")
+				"jet-views":path.resolve(__dirname, "ClientApp/views"),
+				"jet-locales":path.resolve(__dirname, "ClientApp/locales")
 			}
 		},
 		plugins: [

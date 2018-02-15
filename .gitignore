@@ -1,4 +1,6 @@
+wwwroot/dist
 .idea/
-codebase/
-node_modules/
+/node_modules
+/obj
+/bin
 *.log

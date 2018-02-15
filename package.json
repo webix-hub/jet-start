@@ -1,5 +1,6 @@
 {
   "name": "webix-jet-app",
+  "private":true,
   "version": "1.0.3",
   "description": "Webix Jet App",
   "main": "sources/myapp.js",
@@ -15,6 +16,7 @@
   ],
   "license": "MIT",
   "devDependencies": {
+    "aspnet-webpack": "^2.0.1",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.0",
