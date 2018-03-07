@@ -4,7 +4,7 @@
   "description": "Webix Jet App",
   "main": "sources/myapp.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha-webpack --require tests/setup.js --webpack-config webpack.test.config.js \"tests/**/*.test.js\"",
     "lint": "eslint sources/",
     "build": "webpack --env.production true",
     "start": "webpack-dev-server"
@@ -18,17 +18,22 @@
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.0",
+    "chai": "^4.1.2",
     "css-loader": "^0.28.7",
     "eslint": "^4.7.2",
     "extract-text-webpack-plugin": "^3.0.0",
     "file-loader": "^0.11.2",
+    "jsdom": "^11.6.2",
     "less": "^2.7.2",
     "less-loader": "^4.0.5",
+    "mocha": "^5.0.3",
+    "mocha-webpack": "^1.0.1",
     "url-loader": "^0.5.9",
     "webpack": "^3.6.0",
     "webpack-dev-server": "^2.8.2"
   },
   "dependencies": {
+    "webix": "^5.2.1",
     "webix-jet": "^1.3.0"
   }
 }
