@@ -7,6 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint sources/",
     "build": "webpack --env.production true",
+    "module": "webpack --env.production true --env.module true",
+    "standalone": "webpack --env.production true --env.module true --env.standalone true",
     "start": "webpack-dev-server"
   },
   "keywords": [
@@ -18,6 +20,7 @@
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "css-loader": "^0.28.7",
     "eslint": "^4.7.2",
     "extract-text-webpack-plugin": "^3.0.0",
@@ -29,6 +32,6 @@
     "webpack-dev-server": "^2.8.2"
   },
   "dependencies": {
-    "webix-jet": "^1.4.0"
+    "webix-jet": "^1.5.0"
   }
 }
