@@ -1,6 +1,6 @@
 {
   "name": "webix-jet-app",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "Webix Jet App",
   "main": "sources/myapp.js",
   "scripts": {
