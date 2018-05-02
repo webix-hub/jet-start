@@ -1,18 +1,22 @@
-import {JetApp} from "webix-jet";
 import "./styles/app.css";
+import {JetApp, EmptyRouter, HashRouter } from "webix-jet";
 
-declare var APPNAME;
-declare var VERSION;
+declare var APPNAME, VERSION, PRODUCTION, BUILD_AS_MODULE;
 
-webix.ready(() => {
-	const app = new JetApp({
-		id:			APPNAME,
-		version:	VERSION,
-		start:		"/top/start"
-	});
-	app.render();
+export default class MyApp extends JetApp{
+	constructor(config = {}){
+		const defaults = {
+			id 		: APPNAME,
+			version : VERSION,
+			router 	: BUILD_AS_MODULE ? EmptyRouter : HashRouter,
+			debug 	: !PRODUCTION,
+			start 	: "/top/start"
+		};
 
-	app.attachEvent("app:error:resolve", function(_$name, error){
-		window.console.error(error);
-	});
-});
+		super({ ...defaults, ...config });
+	}
+}
+
+if (!BUILD_AS_MODULE){
+	webix.ready(() => new MyApp().render() );
+}

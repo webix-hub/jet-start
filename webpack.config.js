@@ -5,7 +5,10 @@ module.exports = function(env) {
 
 	var pack = require("./package.json");
 	var ExtractTextPlugin = require("extract-text-webpack-plugin");
+
 	var production = !!(env && env.production === "true");
+	var asmodule = !!(env && env.module === "true");
+	var standalone = !!(env && env.standalone === "true");
 
 	var config = {
 		entry: "./sources/myapp.ts",
@@ -44,7 +47,8 @@ module.exports = function(env) {
 			new webpack.DefinePlugin({
 				VERSION: `"${pack.version}"`,
 				APPNAME: `"${pack.name}"`,
-				PRODUCTION : production
+				PRODUCTION : production,
+				BUILD_AS_MODULE : (asmodule || standalone)
 			})
 		]
 	};
@@ -55,6 +59,21 @@ module.exports = function(env) {
 				test: /\.js$/
 			})
 		);
+	}
+
+	if (asmodule){
+		if (!standalone){
+			config.externals = config.externals || {};
+			config.externals = [ "webix-jet" ];
+		}
+
+		const out = config.output;
+		const sub = standalone ? "full" : "module";
+
+		out.library = pack.name.replace(/[^a-z0-9]/gi, "");
+		out.libraryTarget= "umd";
+		out.path = path.join(__dirname, "dist", sub);
+		out.publicPath = "/dist/"+sub+"/";
 	}
 
 	return config;

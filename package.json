@@ -1,12 +1,14 @@
 {
   "name": "webix-jet-app",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "Webix Jet App",
   "main": "sources/myapp.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "tslint -p tsconfig.json",
     "build": "webpack --env.production true",
+    "module": "webpack --env.production true --env.module true",
+    "standalone": "webpack --env.production true --env.module true --env.standalone true",
     "start": "webpack-dev-server"
   },
   "keywords": [
@@ -29,6 +31,6 @@
     "webpack-dev-server": "^2.8.2"
   },
   "dependencies": {
-    "webix-jet": "^1.3.2"
+    "webix-jet": ">=1.5.2"
   }
 }
