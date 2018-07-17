@@ -18,10 +18,12 @@ export default class TopView extends JetView{
 			]
 		};
 
+		var logout = { view:"button", label:"Logout", click: () => this.show("/logout") };
+
 		var ui = {
 			type:"line", cols:[
 				{ type:"clean", css:"app-left-panel",
-					padding:10, margin:20, borderless:true, rows: [ header, menu ]},
+					padding:10, margin:20, borderless:true, rows: [ header, menu, logout ]},
 				{ rows:[ { height:10}, 
 					{ type:"clean", css:"app-right-panel", padding:4, rows:[
 						{ $subview:true } 

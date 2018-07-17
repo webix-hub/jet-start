@@ -1,0 +1,1 @@
+export const data = new webix.DataCollection({ url:"/server/data" });

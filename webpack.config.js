@@ -17,10 +17,10 @@ module.exports = function(env) {
 	var config = {
 		mode: production ? "production" : "development",
 		entry: {
-			myapp: "./sources/myapp.js"
+			myapp: "./client/myapp.js"
 		},
 		output: {
-			path: path.join(__dirname, "codebase"),
+			path: path.join(__dirname, "public", "codebase"),
 			publicPath:"/codebase/",
 			filename: "[name].js",
 			chunkFilename: "[name].bundle.js"
@@ -44,10 +44,10 @@ module.exports = function(env) {
 		stats:"minimal",
 		resolve: {
 			extensions: [".js"],
-			modules: ["./sources", "node_modules"],
+			modules: ["./client", "node_modules"],
 			alias:{
-				"jet-views":path.resolve(__dirname, "sources/views"),
-				"jet-locales":path.resolve(__dirname, "sources/locales")
+				"jet-views":path.resolve(__dirname, "client/views"),
+				"jet-locales":path.resolve(__dirname, "client/locales")
 			}
 		},
 		plugins: [
@@ -62,7 +62,11 @@ module.exports = function(env) {
 			})
 		],
 		devServer:{
-			stats:"errors-only"
+			stats:"errors-only",
+			contentBase:"./public/",
+			proxy:{
+				"/server" : "http://localhost:3000"
+			}
 		}
 	};
 

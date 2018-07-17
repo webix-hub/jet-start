@@ -1,5 +1,5 @@
 .idea/
-codebase/
+public/codebase/
 node_modules/
 *.log
 dist/

@@ -9,7 +9,8 @@
     "build": "webpack --env.production true",
     "module": "webpack --env.production true --env.module true",
     "standalone": "webpack --env.production true --env.module true --env.standalone true",
-    "start": "webpack-dev-server --open"
+    "start": "webpack-dev-server --open",
+    "server": "node server/index.js"
   },
   "keywords": [
     "webix",
@@ -34,6 +35,9 @@
     "webpack-dev-server": "^3.1.4"
   },
   "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "express-session": "^1.15.6",
     "webix-jet": "^1.6.1"
   }
 }
