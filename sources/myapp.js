@@ -1,30 +1,23 @@
 import "./styles/app.css";
-import {JetApp, plugins} from "webix-jet";
-
+import {JetApp, EmptyRouter, HashRouter, plugins } from "webix-jet";
 import session from "models/session";
 
-webix.ready(() => {
-	var app = new JetApp({
-		id:			APPNAME,
-		version:	VERSION,
-		start:		"/top/start"
-	});
-	// login
-	app.use(plugins.User, { model: session });
-	app.render();
+export default class MyApp extends JetApp{
+	constructor(config){
+		const defaults = {
+			id 		: APPNAME,
+			version : VERSION,
+			router 	: BUILD_AS_MODULE ? EmptyRouter : HashRouter,
+			debug 	: !PRODUCTION,
+			start 	: "/top/start"
+		};
 
-	//error handlers
-	app.attachEvent("app:error:resolve", function(name, error){
-		window.console.error(error);
-	});
-	app.attachEvent("app:error:initview", function(view, error){
-		window.console.error(error);
-	});
-	app.attachEvent("app:error:server", function(error){
-		webix.alert({
-			width: 450,
-			title:"Data saving error",
-			text: "Please try to repeat the action <br> if error still occurs, please try to reload the page."
-		});
-	});
-});
+		super({ ...defaults, ...config });
+
+		this.use(plugins.User, { model: session });
+	}
+}
+
+if (!BUILD_AS_MODULE){
+	webix.ready(() => new MyApp().render() );
+}
