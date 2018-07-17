@@ -1,7 +1,10 @@
+import {EmptyRouter, HashRouter, JetApp } from "webix-jet";
 import "./styles/app.css";
-import {JetApp, EmptyRouter, HashRouter } from "webix-jet";
 
-declare var APPNAME, VERSION, PRODUCTION, BUILD_AS_MODULE;
+declare var APPNAME;
+declare var VERSION;
+declare var PRODUCTION;
+declare var BUILD_AS_MODULE;
 
 export default class MyApp extends JetApp{
 	constructor(config = {}){
@@ -18,5 +21,5 @@ export default class MyApp extends JetApp{
 }
 
 if (!BUILD_AS_MODULE){
-	webix.ready(() => new MyApp().render() );
+	webix.ready(() => new MyApp().render());
 }
