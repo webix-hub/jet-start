@@ -8,7 +8,12 @@ export default class MyApp extends JetApp{
 			version : VERSION,
 			router 	: BUILD_AS_MODULE ? EmptyRouter : HashRouter,
 			debug 	: !PRODUCTION,
-			start 	: "/top/start"
+			start 	: "/top/start",
+			views	: page => {
+				if (page === "accounting")
+					return import(/* webpackChunkName: "accounting" */ "modules/accounting/app"); 
+				return page;
+			}
 		};
 
 		super({ ...defaults, ...config });
