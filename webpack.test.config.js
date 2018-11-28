@@ -12,6 +12,7 @@ module.exports = {
 		devtoolFallbackModuleFilenameTemplate: "[absolute-resource-path]?[hash]"
 	},
 	target: "node",  // webpack should compile node compatible code
+	mode: "development",
 	devtool: "inline-cheap-module-source-map",
 	module: {
 		rules: [
@@ -37,7 +38,8 @@ module.exports = {
 		new webpack.DefinePlugin({
 			VERSION: `"${pack.version}"`,
 			APPNAME: `"${pack.name}"`,
-			PRODUCTION : false
+			PRODUCTION: false,
+			BUILD_AS_MODULE: true
 		})
 	]
 };

@@ -17,9 +17,12 @@ window.document.body.appendChild(scriptEl);
 
 global.webix = dom.window.webix;
 
-
+const nonGlobal = {
+	localStorage:true,
+	sessionStorage: true
+};
 Object.keys(document.defaultView).forEach((property) => {
-	if (typeof global[property] === "undefined") {
+	if (typeof global[property] === "undefined" && !nonGlobal[property]) {
 		global[property] = document.defaultView[property];
 	}
 });
