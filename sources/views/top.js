@@ -5,31 +5,28 @@ import {JetView, plugins} from "webix-jet";
 export default class TopView extends JetView{
 	config(){
 		var header = {
-			type:"header", template:this.app.config.name
+			type:"header", template:this.app.config.name, css:"webix_header app_header"
 		};
 
 		var menu = {
 			view:"menu", id:"top:menu", 
+			css:"app_menu",
 			width:180, layout:"y", select:true,
-			template:"<span class='webix_icon fa-#icon#'></span> #value# ",
+			template:"<span class='webix_icon #icon#'></span> #value# ",
 			data:[
-				{ value:"DashBoard", id:"start", icon:"envelope-o" },
-				{ value:"Data",		 id:"data",  icon:"briefcase" }
+				{ value:"Dashboard", id:"start", icon:"wxi-columns" },
+				{ value:"Data",		 id:"data",  icon:"wxi-pencil" }
 			]
 		};
 
 		var ui = {
-			type:"line", cols:[
-				{ type:"clean", css:"app-left-panel",
-					padding:10, margin:20, borderless:true, rows: [ header, menu ]},
-				{ rows:[ { height:10}, 
-					{ type:"clean", css:"app-right-panel", padding:4, rows:[
-						{ $subview:true } 
-					]}
+			type:"clean", paddingX:5, css:"app_layout", cols:[
+				{  paddingX:5, paddingY:10, rows: [ {css:"webix_shadow_medium", rows:[header, menu]} ]},
+				{ type:"wide", paddingY:10, paddingX:5, rows:[
+					{ $subview:true } 
 				]}
 			]
 		};
-
 
 		return ui;
 	}
