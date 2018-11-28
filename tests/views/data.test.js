@@ -1,7 +1,7 @@
 var chai = require("chai");
 var expect = chai.expect;
 
-import { JetApp } from "webix-jet";
+import MyApp from "myapp";
 import View from "jet-views/data";
 
 let temp, app, view;
@@ -12,7 +12,7 @@ describe("/data", function() {
 		temp = document.createElement("DIV");
 		document.body.appendChild(temp);
 
-		app = new JetApp({});
+		app = new MyApp({});
 	});
 
 	it("can be initialized", function() {
