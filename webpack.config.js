@@ -41,6 +41,7 @@ module.exports = function(env) {
 		resolve: {
 			extensions: [".ts", ".js"],
 			modules: ["./sources", "node_modules"],
+			mainFields: [ 'main' ],
 			alias:{
 				"jet-views":path.resolve(__dirname, "sources/views"),
 				"jet-locales":path.resolve(__dirname, "sources/locales")

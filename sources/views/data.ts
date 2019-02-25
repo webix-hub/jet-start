@@ -8,5 +8,7 @@ export default class DataView extends JetView{
 	}
 	init(view){
 		view.parse(data);
+		const table = view as webix.ui.datatable;
+		table.add({});
 	}
 }
