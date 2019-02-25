@@ -1,3 +1,5 @@
 export default {
-	template:"Start page"
+	align:"middle,center", body:{
+		template:"Dashboard", borderless:true, type:"header", width: 100
+	}
 };

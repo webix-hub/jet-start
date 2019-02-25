@@ -5,7 +5,7 @@ import {JetView, plugins} from "webix-jet";
 export default class TopView extends JetView{
 	config(){
 		const header = {
-			type:"header", template:this.app.config.name
+			type:"header", template:"Typescript App"
 		};
 
 		const menu = {
@@ -19,16 +19,14 @@ export default class TopView extends JetView{
 		};
 
 		const ui = {
-			type:"line", cols:[
+			margin:10,
+			cols:[
 				{
-					type:"clean", css:"app-left-panel",
-					padding:10, margin:20, borderless:true, rows: [ header, menu ]
+					type:"clean", css:"webix_shadow_big",
+					padding:{left:5},
+					rows: [ header, menu ]
 				},
-				{ rows:[ { height:10},
-					{ type:"clean", css:"app-right-panel", padding:4, rows:[
-						{ $subview:true }
-					]}
-				]}
+				{ $subview:true }
 			]
 		};
 
