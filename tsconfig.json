@@ -12,8 +12,5 @@
     },
     "include":[
         "sources/**/*.ts"
-    ],
-    "files":[
-        "node_modules/webix/types/webix.global.d.ts"
     ]
 }

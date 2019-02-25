@@ -1,4 +1,6 @@
-export const data = new webix.DataCollection();
+import {DataCollection} from "webix";
+
+export const data = new DataCollection();
 
 data.parse([
 	{

@@ -1,6 +1,8 @@
 import {JetApp} from "webix-jet";
 import "./styles/app.css";
 
+import * as webix from "webix";
+
 declare var APPNAME;
 declare var VERSION;
 declare var PRODUCTION;
@@ -12,7 +14,8 @@ export default class MyApp extends JetApp{
 			id 		: APPNAME,
 			version : VERSION,
 			debug 	: !PRODUCTION,
-			start 	: "/top/start"
+			start 	: "/top/start",
+			webix
 		};
 
 		super({ ...defaults, ...config });
