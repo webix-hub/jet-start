@@ -1,9 +1,12 @@
 import "./styles/app.css";
+import * as webix from "webix";
 import {JetApp, EmptyRouter, HashRouter } from "webix-jet";
+
 
 export default class MyApp extends JetApp{
 	constructor(config){
 		const defaults = {
+			webix,
 			id 		: APPNAME,
 			version : VERSION,
 			router 	: BUILD_AS_MODULE ? EmptyRouter : HashRouter,
