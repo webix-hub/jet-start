@@ -17,7 +17,8 @@ module.exports = function(env) {
 	var config = {
 		mode: production ? "production" : "development",
 		entry: {
-			myapp: "./sources/myapp.js"
+			myapp: "./sources/myapp.js",
+			webix: "./sources/libs.js"
 		},
 		output: {
 			path: path.join(__dirname, "codebase"),
@@ -29,7 +30,12 @@ module.exports = function(env) {
 			rules: [
 				{
 					test: /\.js$/,
+					exclude: /webix\.(min\.|)js$/,
 					use: "babel-loader?" + JSON.stringify(babelSettings)
+				},
+				{
+					test: /webix\.(min\.|)js$/,
+					use: "script-loader"
 				},
 				{
 					test: /\.(svg|png|jpg|gif)$/,
@@ -46,6 +52,7 @@ module.exports = function(env) {
 			extensions: [".js"],
 			modules: ["./sources", "node_modules"],
 			alias:{
+				"webix":path.resolve(__dirname, "node_modules", "webix", "webix.min.js"),
 				"jet-views":path.resolve(__dirname, "sources/views"),
 				"jet-locales":path.resolve(__dirname, "sources/locales")
 			}
