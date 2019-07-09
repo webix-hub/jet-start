@@ -27,22 +27,22 @@ backend.get("/data", (req, res) => {
 	]);
 });
 
-// login / session handlers
-backend.post("/login", (req, res) => {
-	if (req.body.user === "admin" && req.body.pass === "1"){
-		const user = { id:1, name:"Admin" };
-		req.session.user = user;
-		res.send(user);
-	} else {
-		res.send(null);
-	}
-});
-backend.post("/login/status", (req, res) => {
-	res.send(req.session.user || null);
-});
-backend.post("/logout", (req, res) => {
-	delete req.session.user;
-	res.send({});
+var http = require('http').Server(app);
+const io = require('socket.io')(http);
+
+
+io.on('connection', function(socket) {
+   console.log('A user connected');
+
+	const ping = setInterval(function() {
+   		const d = new Date();
+   		const time = `${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`;
+		socket.emit('dashinfo', { time });
+	}, 1000);
+
+	socket.on('disconnect', function () {
+   		clearInterval(ping);
+	});
 });
 
-app.listen(3000, () => console.log("Example app listening on port 3000!"));
+http.listen(3000, () => console.log("Example app listening on port 3000!"));

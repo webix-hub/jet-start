@@ -1,6 +1,5 @@
 import "./styles/app.css";
 import {JetApp, EmptyRouter, HashRouter, plugins } from "webix-jet";
-import session from "models/session";
 
 export default class MyApp extends JetApp{
 	constructor(config){
@@ -14,7 +13,7 @@ export default class MyApp extends JetApp{
 
 		super({ ...defaults, ...config });
 
-		this.use( plugins.User, { model : session });
+		this.setService("io", io());
 	}
 }
 

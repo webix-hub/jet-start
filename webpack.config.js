@@ -65,7 +65,8 @@ module.exports = function(env) {
 			stats:"errors-only",
 			contentBase:"./public/",
 			proxy:{
-				"/server" : "http://localhost:3000"
+				"/server" : "http://localhost:3000",
+				"/socket.io" : "http://localhost:3000"
 			}
 		}
 	};
