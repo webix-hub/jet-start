@@ -38,6 +38,6 @@
     "body-parser": "^1.18.3",
     "express": "^4.16.3",
     "express-session": "^1.15.6",
-    "webix-jet": "^1.6.1"
+    "webix-jet": "^2.1.0"
   }
 }

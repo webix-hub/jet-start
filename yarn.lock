@@ -5417,20 +5417,10 @@ wbuf@^1.1.0, wbuf@^1.7.2:
   dependencies:
     minimalistic-assert "^1.0.0"
 
-webix-jet@^1.6.1:
-  version "1.6.1"
-  resolved "https://registry.yarnpkg.com/webix-jet/-/webix-jet-1.6.1.tgz#797359a01060d8c26f03029ee5d2127266e87a95"
-  dependencies:
-    webix-polyglot "^2.3.0"
-    webix-routie "^0.4.0"
-
-webix-polyglot@^2.3.0:
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/webix-polyglot/-/webix-polyglot-2.3.0.tgz#57665ec19976ff80a0d1a6c1f59ca46a6a3466c2"
-
-webix-routie@^0.4.0:
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/webix-routie/-/webix-routie-0.4.0.tgz#6693986e1b082d3880cc95f94eb5dd328c081a90"
+webix-jet@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/webix-jet/-/webix-jet-2.1.0.tgz#946b0baa30877d5c4c0f69001de38103f94e8a29"
+  integrity sha512-7aVGWo3J9gXYKVZGA7ku5e0EfRMfAPiKqcsoM9+4ToOkGAfstAA//EbYiDhENIoGYFe4YS5bTD5PA+7uiH7E8g==
 
 webpack-cli@^3.0.8:
   version "3.0.8"

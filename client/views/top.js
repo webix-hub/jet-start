@@ -5,7 +5,7 @@ import {JetView, plugins} from "webix-jet";
 export default class TopView extends JetView{
 	config(){
 		var header = {
-			type:"header", template:this.app.config.name
+			type:"header", template:this.app.config.name, css:"webix_dark"
 		};
 
 		var menu = {
@@ -21,17 +21,14 @@ export default class TopView extends JetView{
 		var logout = { view:"button", label:"Logout", click: () => this.show("/logout") };
 
 		var ui = {
-			type:"line", cols:[
-				{ type:"clean", css:"app-left-panel",
-					padding:10, margin:20, borderless:true, rows: [ header, menu, logout ]},
-				{ rows:[ { height:10}, 
-					{ type:"clean", css:"app-right-panel", padding:4, rows:[
-						{ $subview:true } 
-					]}
+			rows:[
+				header,
+				{ type:"wide", padding:{ top:4 }, cols:[
+					{ rows:[ menu, logout ] },
+					{ $subview:true }
 				]}
 			]
 		};
-
 
 		return ui;
 	}
