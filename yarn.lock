@@ -3164,13 +3164,9 @@ lodash.uniq@^4.5.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/lodash.uniq/-/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
 
-lodash@^4.17.4, lodash@^4.3.0:
-  version "4.17.4"
-  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
-
-lodash@^4.17.5:
-  version "4.17.10"
-  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.10.tgz#1b7793cf7259ea38fb3661d4d38b3260af8ae4e7"
+lodash@^4.17.4, lodash@^4.17.5, lodash@^4.3.0:
+  version "4.17.15"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
 
 log-symbols@^2.1.0:
   version "2.2.0"
@@ -5348,9 +5344,9 @@ wbuf@^1.1.0, wbuf@^1.7.2:
   dependencies:
     minimalistic-assert "^1.0.0"
 
-webix-jet@^2.0.4:
-  version "2.0.4"
-  resolved "https://registry.yarnpkg.com/webix-jet/-/webix-jet-2.0.4.tgz#cd9606c8fc4844459926ca7833285525f38f8390"
+webix-jet@^2.1.2:
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/webix-jet/-/webix-jet-2.1.2.tgz#93b32607b4b197d1b210f6943abd3cb5dcdd9d9b"
 
 webpack-cli@^3.0.8:
   version "3.0.8"
