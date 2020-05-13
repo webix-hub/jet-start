@@ -1,3 +1,6 @@
+/* eslint-env node */
+/* eslint indent: ["error", 8] */
+
 var path = require("path");
 var webpack = require("webpack");
 
@@ -86,4 +89,5 @@ module.exports = function(env) {
 	}
 
 	return config;
-}
+};
+
