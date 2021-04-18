@@ -1,8 +1,8 @@
 import {JetView} from "webix-jet";
 
 export default class GridView extends JetView {
-    constructor(app, name, [data,localId]){
-        super(app, name,localId); //call parent constructor
+    constructor(app, name, data){
+        super(app, name); //call parent constructor
         this._gridData = data; //define specific parameters
     }
     config(){

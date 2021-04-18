@@ -13,16 +13,41 @@ export default class DataView extends JetView {
 	config(){
 		return {
 			rows:[
-				{view:"multiview",
+				{view:"tabview",
 				cells:[
-					{ $subview: new GridView(this.app,"Contacts", [contacts,1])},
-					{ $subview: new GridView(this.app,"Countries", [countries,2])}
+					{ header: "Contacts",
+					body:{$subview: new GridView(this.app,"Contacts", contacts)},
+					},
+					{ header: "Countries",
+					body:{$subview: new GridView(this.app,"Countries", countries),}
+					},
 				]
-			},
-			tabbar
-		]};
-	}
-        // init(view){
-        // }
+				},
+				{ view:"toolbar", cols:[
+					{ view:"button", value:"Add new",
+						on:{ onItemClick:function(){
+						//var table = this.getTopParentView().queryView("datatable");
+							var tab = this.getTopParentView().queryView("tabview");
+							var table = tab.queryView("datatable");
+							table.add({Name:"Alan"});
+							}
+							}
+					},
+					{ view:"button",  value:"Remove selected",
+						on:{ onItemClick:function(){
+							var table = this.getTopParentView().queryView("datatable");
+							var sel = table.getSelectedId();
+							if(sel) table.remove(sel);
+							}
+							}},
+					{ view:"button", value:"Refresh",
+						on:{ onItemClick:function(){
+							this.getTopParentView().queryView("datatable").refresh();
+							}
+							}
+					},
+				]
+			}
+		]
+	};}
 }
-

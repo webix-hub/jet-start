@@ -23,7 +23,4 @@ config(){
             ]   
         };
     }
-init(){
-    //  view.queryView("list").parse(contacts);
-    }
 }
