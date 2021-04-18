@@ -1,4 +1,4 @@
-import {JetApp, EmptyRouter, HashRouter } from "webix-jet";
+import {JetApp, UrlRouter,EmptyRouter, HashRouter } from "webix-jet";
 
 export default class MyApp extends JetApp{
     constructor(config){
@@ -6,6 +6,7 @@ export default class MyApp extends JetApp{
 	    id 	: APPNAME,
 	    version : VERSION,
 	    router : BUILD_AS_MODULE ? EmptyRouter : HashRouter,
+		//router : UrlRouter,
 	    debug : !PRODUCTION,
 	    start : "/top/start"
 	};

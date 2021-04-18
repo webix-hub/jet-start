@@ -1,8 +1,4 @@
 import {JetView} from "webix-jet";
-import {data} from "models/data";
-import Segmented from "views/settings";
-import DataView from "views/data";
-import Contacts from "views/contacts";
 
 export default class TopView extends JetView {
 	config(){

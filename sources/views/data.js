@@ -27,22 +27,40 @@ export default class DataView extends JetView {
 					{ view:"button", value:"Add new",
 						on:{ onItemClick:function(){
 						//var table = this.getTopParentView().queryView("datatable");
-							var tab = this.getTopParentView().queryView("tabview");
-							var table = tab.queryView("datatable");
+							var tables = this.getTopParentView().queryView("datatable","all");
+							let table;
+							tables.forEach(element => {
+								if(element.isVisible()){
+								 table = element;
+								}
+							});
 							table.add({Name:"Alan"});
 							}
 							}
 					},
 					{ view:"button",  value:"Remove selected",
 						on:{ onItemClick:function(){
-							var table = this.getTopParentView().queryView("datatable");
+							var tables = this.getTopParentView().queryView("datatable","all");
+							let table;
+							tables.forEach(element => {
+								if(element.isVisible()){
+								 table = element;
+								}
+							});
 							var sel = table.getSelectedId();
 							if(sel) table.remove(sel);
 							}
 							}},
 					{ view:"button", value:"Refresh",
 						on:{ onItemClick:function(){
-							this.getTopParentView().queryView("datatable").refresh();
+							var tables = this.getTopParentView().queryView("datatable","all");
+							let table;
+							tables.forEach(element => {
+								if(element.isVisible()){
+								 table = element;
+								}
+							});
+							table.refresh();
 							}
 							}
 					},
