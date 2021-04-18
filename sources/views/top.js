@@ -1,36 +1,23 @@
-import {JetView, plugins} from "webix-jet";
+import {JetView} from "webix-jet";
+import {data} from "models/data";
+import Segmented from "views/settings";
+import DataView from "views/data";
+import Contacts from "views/contacts";
 
-
-
-export default class TopView extends JetView{
+export default class TopView extends JetView {
 	config(){
-		var header = {
-			type:"header", template:this.app.config.name, css:"webix_header app_header"
-		};
-
-		var menu = {
-			view:"menu", id:"top:menu", 
-			css:"app_menu",
-			width:180, layout:"y", select:true,
-			template:"<span class='webix_icon #icon#'></span> #value# ",
+		return { cols:[
+			{ view:"menu",layout:"y", width:200, select:true,
 			data:[
-				{ value:"Dashboard", id:"start", icon:"wxi-columns" },
-				{ value:"Data",		 id:"data",  icon:"wxi-pencil" }
-			]
-		};
-
-		var ui = {
-			type:"clean", paddingX:5, css:"app_layout", cols:[
-				{  paddingX:5, paddingY:10, rows: [ {css:"webix_shadow_medium", rows:[header, menu]} ]},
-				{ type:"wide", paddingY:10, paddingX:5, rows:[
-					{ $subview:true } 
-				]}
-			]
-		};
-
-		return ui;
+				{ id:"1",value:"Contacts", href: "#!/top/contacts"},
+				{ id:"2",value:"DataView", href: "#!/top/data"},
+				{ id:"3",value:"Segmented", href: "#!/top/settings"},
+				],
+			}, 
+			{ $subview:true}
+		]};
 	}
-	init(){
-		this.use(plugins.Menu, "top:menu");
+	init(view){
+	//	view.queryView("menu").parse(data);
 	}
 }

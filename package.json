@@ -35,5 +35,14 @@
   },
   "dependencies": {
     "webix-jet": "^2.1.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlenaMikalaeynaLisava/jet-start.git"
+  },
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/AlenaMikalaeynaLisava/jet-start/issues"
+  },
+  "homepage": "https://github.com/AlenaMikalaeynaLisava/jet-start#readme"
 }
