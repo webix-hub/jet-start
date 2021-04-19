@@ -1,19 +1,19 @@
-import {JetView} from "webix-jet";
+import {JetView, plugins} from "webix-jet";
 
 export default class TopView extends JetView {
 	config(){
 		return { cols:[
-			{ view:"menu",layout:"y", width:200, select:true,
+			{ view:"menu",layout:"y", width:200, select:true, localId:"menu",
 			data:[
-				{ id:"1",value:"Contacts", href: "#!/top/contacts"},
-				{ id:"2",value:"DataView", href: "#!/top/data"},
-				{ id:"3",value:"Segmented", href: "#!/top/settings"},
+				{ id:"contacts",value:"Contacts"},
+				{ id:"data",value:"DataView"},
+				{ id:"settings",value:"Segmented"},
 				],
 			}, 
 			{ $subview:true}
 		]};
 	}
-	init(view){
-	//	view.queryView("menu").parse(data);
+	init(){
+		this.use(plugins.Menu, "menu");
 	}
 }

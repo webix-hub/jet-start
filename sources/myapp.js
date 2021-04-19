@@ -1,4 +1,4 @@
-import {JetApp, UrlRouter,EmptyRouter, HashRouter } from "webix-jet";
+import {JetApp, EmptyRouter, HashRouter } from "webix-jet";
 
 export default class MyApp extends JetApp{
     constructor(config){
