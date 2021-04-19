@@ -8,20 +8,20 @@ var tabbar = {
 		{ value: "Contacts", id:1},
 		{ value: "Countries", id:2},
 	],height:50
-}
+};
 export default class DataView extends JetView {
 	config(){
 		return {
 			rows:[
 				{view:"tabview",
-				cells:[
-					{ header: "Contacts",
-					body:{$subview: new GridView(this.app,"Contacts", contacts)},
-					},
-					{ header: "Countries",
-					body:{$subview: new GridView(this.app,"Countries", countries),}
-					},
-				]
+					cells:[
+						{ header: "Contacts",
+							body:{$subview: new GridView(this.app,"Contacts", contacts)},
+						},
+						{ header: "Countries",
+							body:{$subview: new GridView(this.app,"Countries", countries),}
+						},
+					]
 				},
 				{ view:"toolbar", cols:[
 					{ view:"button", value:"Add new",
@@ -35,8 +35,8 @@ export default class DataView extends JetView {
 								}
 							});
 							table.add({Name:"Alan"});
-							}
-							}
+						}
+						}
 					},
 					{ view:"button",  value:"Remove selected",
 						on:{ onItemClick:function(){
@@ -49,8 +49,8 @@ export default class DataView extends JetView {
 							});
 							var sel = table.getSelectedId();
 							if(sel) table.remove(sel);
-							}
-							}},
+						}
+						}},
 					{ view:"button", value:"Refresh",
 						on:{ onItemClick:function(){
 							var tables = this.getTopParentView().queryView("datatable","all");
@@ -61,11 +61,11 @@ export default class DataView extends JetView {
 								}
 							});
 							table.refresh();
-							}
-							}
+						}
+						}
 					},
 				]
-			}
-		]
-	};}
+				}
+			]
+		};}
 }
