@@ -8,10 +8,12 @@ export default class Contacts extends JetView {
 			view:"layout",
 			cols:[
 				{ view:"list",
-					template:"#Name# #Email# #Status#",
-					data:contacts }, 
+					template:"#Name# #Email# #Status#"}, 
 				Form
 			]   
 		};
+	}
+	init(view){
+		view.queryView("list").parse(contacts);
 	}
 }

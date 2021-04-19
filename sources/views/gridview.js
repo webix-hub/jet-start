@@ -7,11 +7,37 @@ export default class GridView extends JetView {
 	}
 	config(){
 		return {
-			view: "datatable",
-			autoConfig:true
+			rows:[
+				{view: "datatable",
+					editable: true,
+					autoConfig:true},
+				{ view:"toolbar", cols:[
+					{ view:"button", value:"Add new",
+						on:{ onItemClick:function(){
+							var table = this.getParentView().getParentView().queryView("datatable");
+							table.add({Name:"Alan"});
+						}
+						}
+					},
+					{ view:"button",  value:"Remove selected",
+						on:{ onItemClick:function(){
+							var table = this.getParentView().getParentView().queryView("datatable");
+							var sel = table.getSelectedId();
+							if(sel) table.remove(sel);
+						}
+						}},
+					{ view:"button", value:"Refresh",
+						on:{ onItemClick:function(){
+							var table = this.getParentView().getParentView().queryView("datatable");
+							table.refresh();
+						}
+						}
+					},
+				]}
+			]
 		};
 	}
 	init(view) {
-		view.parse(this._gridData);
+		view.queryView("datatable").parse(this._gridData);
 	}
 }
