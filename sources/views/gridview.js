@@ -39,5 +39,6 @@ export default class GridView extends JetView {
 	}
 	init(view) {
 		view.queryView("datatable").parse(this._gridData);
+		view.queryView("datatable").getColumnConfig("Name").editor = "text";
 	}
 }
