@@ -23,7 +23,7 @@ describe("/top", function() {
 
 	it("can be initialized", function() {
 		view = new View(app, "");
-		view.render(temp);
+		view.render(temp, "top");
 	});
 
 	it("has top menu", function() {

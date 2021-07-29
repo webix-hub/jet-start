@@ -6265,28 +6265,15 @@ webidl-conversions@^4.0.2:
   resolved "https://registry.yarnpkg.com/webidl-conversions/-/webidl-conversions-4.0.2.tgz#a855980b1f0b6b359ba1d5d9fb39ae941faa63ad"
   integrity sha512-YQ+BmxuTgd6UXZW3+ICGfyqRyHXVlD5GtQr5+qjiNW7bF0cqrzX500HVXPBOvgXb5YnzDd+h0zqyv61KUD7+Sg==
 
-webix-jet@^1.6.1:
-  version "1.6.3"
-  resolved "https://registry.yarnpkg.com/webix-jet/-/webix-jet-1.6.3.tgz#611024e49558b0054df285422d30bd8a24d4e5b8"
-  integrity sha512-VO3G98JhYc8NVhJnhbLY5Ca2fvQlPXdxWahEilMXHWKtP0o/1OcsBmt2Ub/a6/oAF5MKUmpvC+KQpGKpYxSLLg==
-  dependencies:
-    webix-polyglot "^2.3.0"
-    webix-routie "^0.4.0"
+webix-jet@^2.1.3:
+  version "2.1.3"
+  resolved "https://registry.yarnpkg.com/webix-jet/-/webix-jet-2.1.3.tgz#f6d2c83c4eaccd843d4b23fb9b4f0ac0dca57ee6"
+  integrity sha512-9sz7hNrrUK+Plyb/MAmNld2wlqmZdSP935fZ3JdKpQ1Db3Pidh+cAPTXs8Ve/IlAL+rXi/buMRQjaq5VdD4WBA==
 
-webix-polyglot@^2.3.0:
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/webix-polyglot/-/webix-polyglot-2.3.0.tgz#57665ec19976ff80a0d1a6c1f59ca46a6a3466c2"
-  integrity sha512-KzzY9NdYkVD1emyWAF7xJbnNn6VnAwJOwc8KdOSL2Fr/8tszzPu+T6tGY5ZUqNbnoeYEgGbzXFXQSzRKfGV9WA==
-
-webix-routie@^0.4.0:
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/webix-routie/-/webix-routie-0.4.0.tgz#6693986e1b082d3880cc95f94eb5dd328c081a90"
-  integrity sha1-ZpOYbhsILTiAzJX5TrXdMowIGpA=
-
-webix@^6.0.9:
-  version "6.0.9"
-  resolved "https://registry.yarnpkg.com/webix/-/webix-6.0.9.tgz#0c85a1480024c610ec4405c2dfc31ecc8b0374ed"
-  integrity sha512-T9GSKqxMEztWYITx5zIhWuProZHnr9iTWj/R1+4FyDVbYp3JAiO5oA5EnO6LZf8eCIc5GzgMi6tgaqpScqce9Q==
+webix@^8.4.0:
+  version "8.4.0"
+  resolved "https://registry.yarnpkg.com/webix/-/webix-8.4.0.tgz#e0b1201389afa2f027a52fafe0fb558da6be07c3"
+  integrity sha512-6kxptOm7xcfV6ePze2l3ejqTG2Zo0Nb8/feZ6vQ53XrLCU27pwBrgxCtSyeXyw9KxwhDel9rzsEeJUVv2Ltdzg==
 
 webpack-cli@^3.0.8:
   version "3.1.2"
