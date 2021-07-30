@@ -1,7 +1,7 @@
 import { JetView } from 'webix-jet';
-import { contacts } from 'models/contacts';
+import { statuses } from 'models/statuses';
 import { countries } from 'models/countries';
-import GridView from 'views/gridview';
+import GridView from 'views/gridView';
 
 export default class DataView extends JetView {
   config() {
@@ -11,8 +11,8 @@ export default class DataView extends JetView {
           view: 'tabview',
           cells: [
             {
-              header: 'Contacts',
-              body: { $subview: new GridView(this.app, 'Contacts', contacts) },
+              header: 'Statuses',
+              body: { $subview: new GridView(this.app, 'Statuses', statuses) },
             },
             {
               header: 'Countries',

@@ -11,7 +11,7 @@ export default class GridView extends JetView {
         {
           view: 'datatable',
           editable: true,
-          editation: 'dbclick',
+          editaction: 'dblclick',
           localId: 'mydatatable',
           autoConfig: true,
         },
