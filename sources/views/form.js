@@ -1,9 +1,16 @@
-import {JetView} from "webix-jet";
+import {
+	JetView
+} from "webix-jet";
+import {
+	contacts
+} from "../models/contacts";
 
 export default class Form extends JetView {
 	config() {
+		
 		return {
 			view: "form",
+			localId:"form",
 			width: 300,
 			elements: [
 				{view: "text", type: "text", label: "Name", name: "name"},
@@ -19,4 +26,15 @@ export default class Form extends JetView {
 			]
 		};
 	}
+
+	/* urlChange(view){
+			const id = this.getParam("id");
+			console.log(id)
+			if (id && contacts.exists(id)) {
+				this.$$("form").setValues(contacts.getItem(id));
+			}
+			else {
+				this.$$("form").clear();
+			}
+    } */
 }
