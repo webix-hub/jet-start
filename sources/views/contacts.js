@@ -7,7 +7,8 @@ export default class Contacts extends JetView {
 	config() {
 		return {
 			cols: [
-				{
+				{ rows: [
+				 {
 					view: "list", 
 					localID:"list",
 					select:true,
@@ -22,15 +23,28 @@ export default class Contacts extends JetView {
 						onAfterLoad: function(){
 						   this.select(this.getFirstId());
 						},
-					},
+						onAfterSelect: function(id){
+							this.$scope.setParam("el", id, true)
+						}
+					}
+				 },
+				 {
+					 view: "button",
+					 localId: "button",
+					 value: "Add",
+					 click: function(){
+						contacts.add({"Name": "New name", "Email": "New email"});
+					 }
+				 }
+				]
 			    }, 
 				Form]
 		};
 	}
 
 	init(view) {
-		view.queryView("list").parse(contacts);		
-		//this.list = this.$$("list");
+		view.queryView("list").parse(contacts);	
+		this.on(view, "onAfterSelect", id => this.app.callEvent("contact:select", [id]))	
 	}
 
 }

@@ -5,6 +5,8 @@ import {
 	contacts
 } from "../models/contacts";
 
+
+
 export default class Form extends JetView {
 	config() {
 		
@@ -13,9 +15,9 @@ export default class Form extends JetView {
 			localId:"form",
 			width: 300,
 			elements: [
-				{view: "text", type: "text", label: "Name", name: "name"},
-				{view: "text", label: "Email", name: "email"},
-				{view: "text", type: "text", label: "Status", name: "status"},
+				{view: "text", type: "text", label: "Name", name: "Name"},
+				{view: "text", label: "Email", name: "Email"},
+				{view: "text", type: "text", label: "Status", name: "Status"},
 				{
 					margin: 5,
 					cols: [
@@ -26,15 +28,10 @@ export default class Form extends JetView {
 			]
 		};
 	}
-
-	/* urlChange(view){
-			const id = this.getParam("id");
-			console.log(id)
-			if (id && contacts.exists(id)) {
-				this.$$("form").setValues(contacts.getItem(id));
-			}
-			else {
-				this.$$("form").clear();
-			}
-    } */
+	init (view) {
+		this.on(this.app, "contact:select", id => {
+		  const item = contacts.getItem(id);
+		  view.setValues(item)      
+		})
+	  }
 }
