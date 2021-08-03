@@ -1,14 +1,14 @@
-export default{
-	Settings : "Настройки",
-	Language : "Язык",
-	Delete : "Удалить",
-	Add : "Добавить",
+export default {
+	Settings: "Настройки",
+	Language: "Язык",
+	Delete: "Удалить",
+	Add: "Добавить",
 	contact: "контакты",
-	Data : "Данные",
+	Data: "Данные",
 	Country: "Страна",
-	Status : "Статус",
-	Email : "Email",
-	"User Name" : "Имя",
-	Save : "Сохранить"
+	Status: "Статус",
+	Email: "Email",
+	"User Name": "Имя",
+	Save: "Сохранить"
 
-}
+};
