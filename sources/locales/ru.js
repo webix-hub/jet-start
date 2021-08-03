@@ -1,14 +1,18 @@
 export default {
 	Settings: "Настройки",
 	Language: "Язык",
-	Delete: "Удалить",
 	Add: "Добавить",
-	contact: "контакты",
+	Contacts: "Контакты",
 	Data: "Данные",
-	Country: "Страна",
+	Countries: "Страны",
 	Status: "Статус",
 	Email: "Email",
-	"User Name": "Имя",
-	Save: "Сохранить"
+	Update: "Обновить",
+	Statuses: "Cтатусы",
+	Name: "Имя",
+	Country: "Страна",
+	Cancel: "Отменить",
+	"Add new": "Добавить",
+	"Remove selected": "Удалить"
 
 };

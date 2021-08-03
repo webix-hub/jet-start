@@ -7,23 +7,24 @@ import contacts from "../models/contacts";
 import countries from "../models/countries";
 import statuses from "../models/statuses";
 
-
 export default class Form extends JetView {
 	config() {
+		const _ = this.app.getService("locale")._;
+
 		return {
 			view: "form",
 			localId: "myform",
 			width: 300,
 			elements: [
-				{view: "text", type: "text", label: "Name", name: "Name", validate: webix.rules.isNotEmpty},
-				{view: "text", label: "Email", name: "Email", validate: webix.rules.isEmail},
-				{view: "combo", type: "text", label: "Status", name: "Status", options: statuses},
-				{view: "combo", type: "text", label: "Country", name: "Country", options: countries},
+				{view: "text", label: _("Name"), name: "Name", validate: webix.rules.isNotEmpty},
+				{view: "text", label: _("Email"), name: "Email", validate: webix.rules.isEmail},
+				{view: "combo", label: _("Status"), name: "Status", options: {body: {template: "#Name#"}, data: statuses}},
+				{view: "combo", label: _("Country"), name: "Country", options: {body: {template: "#Name#"}, data: countries}},
 				{
 					margin: 5,
 					cols: [
-						{view: "button", localId: "updatebutton", value: "Update", css: "webix_primary"},
-						{view: "button", value: "Cancel"}
+						{view: "button", localId: "updatebutton", value: _("Update"), css: "webix_primary"},
+						{view: "button", value: _("Cancel")}
 					]
 				}
 			]

@@ -9,6 +9,7 @@ export default class Segmented extends JetView {
 			rows: [
 				{
 					name: "lang",
+					localId: "lang",
 					optionWidth: 120,
 					view: "segmented",
 					label: _("Language"),
@@ -26,7 +27,7 @@ export default class Segmented extends JetView {
 
 	toggleLanguage() {
 		const langs = this.app.getService("locale");
-		const value = this.getRoot().queryView({name: "lang"}).getValue();
+		const value = this.$$("lang").getValue();
 		langs.setLang(value);
 	}
 }

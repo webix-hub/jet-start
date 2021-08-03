@@ -6,6 +6,8 @@ import Form from "./form";
 
 export default class Contacts extends JetView {
 	config() {
+		const _ = this.app.getService("locale")._;
+
 		return {
 			cols: [
 				{rows: [
@@ -21,18 +23,16 @@ export default class Contacts extends JetView {
 							}
 						},
 						on: {
-							onAfterLoad() {
-						   this.select(this.getFirstId());
-							},
-							onAfterSelect(id) {
-								this.$scope.setParam("el", id, true);
+							onAfterSelect: (id) => {
+								this.setParam("id", id, true);
+								this.app.callEvent("contact:select", [id]);
 							}
 						}
 				 },
 				 {
 					 view: "button",
 					 localId: "button",
-					 value: "Add",
+					 value: _("Add"),
 					 click() {
 							contacts.add({Name: "New name", Email: "email@very.new", Status: "", Country: ""});
 					 }
@@ -47,8 +47,20 @@ export default class Contacts extends JetView {
 		const list = view.queryView("list");
 		contacts.waitData.then(() => {
 			list.sync(contacts);
-			list.select(contacts.getFirstId());
 		});
-		this.on(list, "onAfterSelect", id => this.app.callEvent("contact:select", [id]));
+	}
+
+	urlChange(view) {
+		contacts.waitData.then(() => {
+			let list = view.queryView("list");
+			let id = this.getParam("id");
+
+			if (!contacts.exists(id)) {
+				list.select(contacts.getFirstId());
+			}
+			else if (id && contacts.exists(id)) {
+				list.select(id);
+			}
+		});
 	}
 }

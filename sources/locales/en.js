@@ -1,14 +1,18 @@
 export default {
 	Settings: "Settings",
 	Language: "Language",
-	Delete: "Delete",
 	Add: "Add ",
-	contact: "contact",
+	Contacts: "Contacts",
 	Data: "Data",
-	Country: "Country",
+	Countries: "Country",
 	Status: "Status",
 	Email: "Email",
-	"User Name": "Name",
-	Save: "Save"
+	Update: "Update",
+	Statuses: "Statuses",
+	Name: "Name",
+	Country: "Country",
+	Cancel: "Cancel",
+	"Add new": "Add new",
+	"Remove selected": "Remove selected"
 
 };

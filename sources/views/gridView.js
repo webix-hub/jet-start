@@ -7,6 +7,8 @@ export default class GridView extends JetView {
 	}
 
 	config() {
+		const _ = this.app.getService("locale")._;
+
 		return {
 			rows: [
 				{
@@ -22,12 +24,12 @@ export default class GridView extends JetView {
 						{
 							view: "button",
 							localId: "addbutton",
-							value: "Add new"
+							value: _("Add new")
 						},
 						{
 							view: "button",
 							localId: "removebutton",
-							value: "Remove selected"
+							value: _("Remove selected")
 						}
 					]
 				}
