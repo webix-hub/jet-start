@@ -40,13 +40,12 @@ export default class GridView extends JetView {
 	init() {
 		let table = this.$$("mydatatable");
 		table.parse(this._gridData);
-		table.getColumnConfig("Name").editor = "text";
 		this.$$("addbutton").attachEvent("onItemClick", () => {
-			table.add({Name: "New item"});
+			this._gridData.add({Name: "New item"});
 		});
 		this.$$("removebutton").attachEvent("onItemClick", () => {
 			let sel = table.getSelectedId();
-			if (sel) table.remove(sel);
+			if (sel) this._gridData.remove(sel);
 		});
 	}
 }

@@ -18,7 +18,7 @@ export default class Contacts extends JetView {
 				        template: "#id# #Name# #Email# <span class='webix_icon wxi-close removeUser'>",
 						onClick: {
 							removeUser(event, id) {
-								this.remove(id);
+								contacts.remove(id);
 								return false;
 							}
 						},
@@ -34,7 +34,7 @@ export default class Contacts extends JetView {
 					 localId: "button",
 					 value: _("Add"),
 					 click() {
-							contacts.add({Name: "New name", Email: "email@very.new", Status: "", Country: ""});
+							contacts.add({Name: "New name", Email: "email@very.new", Status: 1, Country: 1});
 					 }
 				 }
 				]

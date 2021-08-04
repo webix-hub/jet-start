@@ -1,0 +1,7 @@
+db: "./db.sqlite"
+
+server:
+  path: /
+  port: "8096"
+
+debug: true
