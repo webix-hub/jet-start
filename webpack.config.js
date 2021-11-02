@@ -62,7 +62,11 @@ module.exports = function(env) {
 			})
 		],
 		devServer:{
-			stats:"errors-only"
+			client: {
+				logging: "error",
+			},
+			static: __dirname,
+			historyApiFallback: true,
 		}
 	};
 
@@ -86,4 +90,4 @@ module.exports = function(env) {
 	}
 
 	return config;
-}
+};
