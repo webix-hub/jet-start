@@ -6,9 +6,9 @@ module.exports = function(env) {
 	var pack = require("./package.json");
 	var MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
-	var production = !!(env && env.production === "true");
-	var asmodule = !!(env && env.module === "true");
-	var standalone = !!(env && env.standalone === "true");
+	var production = !!(env && env.production);
+	var asmodule = !!(env && env.module);
+	var standalone = !!(env && env.standalone);
 
 	var babelSettings = {
 		extends: path.join(__dirname, '/.babelrc')
