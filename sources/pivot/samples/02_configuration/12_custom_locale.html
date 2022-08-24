@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Localization: Custom Locale</title>
+		<!-- Webix Library -->
+		<script type="text/javascript" src="../../codebase/webix/webix.js"></script>
+		<link
+			rel="stylesheet"
+			type="text/css"
+			href="../../codebase/webix/webix.css"
+		/>
+
+		<!-- pivot -->
+		<script type="text/javascript" src="../../codebase/pivot.js"></script>
+		<link rel="stylesheet" type="text/css" href="../../codebase/pivot.css" />
+
+		<script src="../common/ruLocale.js"></script>
+	</head>
+	<body>
+		<script>
+			webix.ready(function() {
+				// use custom scrolls, optional
+				if (!webix.env.touch && webix.env.scrollSize) webix.CustomScroll.init();
+
+				// set default locale for date formatting
+				webix.i18n.setLocale("ru-RU");
+				// set custom translations for pivot
+				pivot.locales.ru = ruLocale;
+
+				webix.ui({
+					view: "pivot",
+					structure: {
+						rows: ["form", "name"],
+						columns: ["year"],
+						values: [{ name: "oil", operation: ["min", "sum"] }],
+					},
+					locale: {
+						lang: "ru",
+					},
+					url: "../common/data.json",
+				});
+			});
+		</script>
+	</body>
+</html>

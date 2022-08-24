@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Pivot: Custom Palette</title>
+		<!-- Webix Library -->
+		<script type="text/javascript" src="../../codebase/webix/webix.js"></script>
+		<link
+			rel="stylesheet"
+			type="text/css"
+			href="../../codebase/webix/webix.css"
+		/>
+
+		<!-- pivot -->
+		<script type="text/javascript" src="../../codebase/pivot.js"></script>
+		<link rel="stylesheet" type="text/css" href="../../codebase/pivot.css" />
+	</head>
+	<body>
+		<script>
+			webix.ready(function() {
+				if (!webix.env.touch && webix.env.scrollSize) webix.CustomScroll.init();
+
+				class CustomValuesProperty extends pivot
+					.views["config/properties/values"] {
+					ItemConfig(val, i) {
+						const config = super.ItemConfig(val, i);
+						config[1].suggest = {
+							padding: 0,
+							type: "colorselect",
+							body: {
+								button: true,
+							},
+						};
+						return config;
+					}
+				}
+
+				webix.ui({
+					view: "pivot",
+					structure: {
+						rows: ["form", "name"],
+						columns: ["year"],
+						values: [{ name: "oil", operation: ["min", "sum"] }],
+					},
+					url: "../common/data.json",
+					override: new Map([
+						[pivot.views["config/properties/values"], CustomValuesProperty],
+					]),
+				});
+			});
+		</script>
+	</body>
+</html>

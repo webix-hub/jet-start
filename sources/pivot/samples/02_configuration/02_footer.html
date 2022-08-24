@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Pivot: Footer</title>
+		<!-- Webix Library -->
+		<script type="text/javascript" src="../../codebase/webix/webix.js"></script>
+		<link
+			rel="stylesheet"
+			type="text/css"
+			href="../../codebase/webix/webix.css"
+		/>
+
+		<!-- pivot -->
+		<script type="text/javascript" src="../../codebase/pivot.js"></script>
+		<link rel="stylesheet" type="text/css" href="../../codebase/pivot.css" />
+	</head>
+	<body>
+		<script>
+			webix.ready(function() {
+				if (!webix.env.touch && webix.env.scrollSize) webix.CustomScroll.init();
+
+				webix.ui({
+					view: "pivot",
+					datatable: {
+						footer: true,
+						//footer:"sumOnly", //calculate totals only for "sum" columns
+					},
+					structure: {
+						rows: ["form", "name"],
+						columns: ["year"],
+						values: [{ name: "oil", operation: ["min", "max", "sum"] }],
+					},
+					url: "../common/data.json",
+				});
+			});
+		</script>
+	</body>
+</html>

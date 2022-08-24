@@ -1,0 +1,130 @@
+[
+	{
+		"id": "1",
+		"client": "ACME",
+		"company": "A",
+		"country": "Germany",
+		"date": "11/01/2017",
+		"statistics": 0.5
+	},
+	{
+		"id": "2",
+		"client": "ACME",
+		"company": "A",
+		"country": "Germany",
+		"date": "11/01/2017",
+		"statistics": 0.4
+	},
+	{
+		"id": "3",
+		"client": "ACME",
+		"company": "B",
+		"country": "Germany",
+		"date": "11/15/2017",
+		"statistics": 0.3
+	},
+	{
+		"id": "4",
+		"client": "ACME",
+		"company": "B",
+		"country": "Germany",
+		"date": "11/15/2017",
+		"statistics": 0.5
+	},
+	{
+		"id": "5",
+		"client": "ACME",
+		"company": "A",
+		"country": "France",
+		"date": "12/01/2017",
+		"statistics": 0.4
+	},
+	{
+		"id": "6",
+		"client": "ACME",
+		"company": "A",
+		"country": "France",
+		"date": "12/01/2017",
+		"statistics": 0.6
+	},
+	{
+		"id": "7",
+		"client": "ACME",
+		"company": "B",
+		"country": "France",
+		"date": "12/15/2017",
+		"statistics": 0.1
+	},
+	{
+		"id": "8",
+		"client": "ACME",
+		"company": "B",
+		"country": "France",
+		"date": "12/15/2017",
+		"statistics": 0.5
+	},
+	{
+		"id": "9",
+		"client": "Samsung",
+		"company": "A",
+		"country": "Germany",
+		"date": "11/01/2017",
+		"statistics": 0.7
+	},
+	{
+		"id": "10",
+		"client": "Samsung",
+		"company": "A",
+		"country": "Germany",
+		"date": "11/01/2017",
+		"statistics": 0.4
+	},
+	{
+		"id": "11",
+		"client": "Samsung",
+		"company": "B",
+		"country": "Germany",
+		"date": "11/15/2017",
+		"statistics": 0.3
+	},
+	{
+		"id": "12",
+		"client": "Samsung",
+		"company": "B",
+		"country": "Germany",
+		"date": "11/15/2017",
+		"statistics": 0.5
+	},
+	{
+		"id": "13",
+		"client": "Samsung",
+		"company": "A",
+		"country": "France",
+		"date": "12/01/2017",
+		"statistics": 0.8
+	},
+	{
+		"id": "14",
+		"client": "Samsung",
+		"company": "A",
+		"country": "France",
+		"date": "12/01/2017",
+		"statistics": 0.4
+	},
+	{
+		"id": "15",
+		"client": "Samsung",
+		"company": "B",
+		"country": "France",
+		"date": "12/15/2017",
+		"statistics": 0.3
+	},
+	{
+		"id": "16",
+		"client": "Samsung",
+		"company": "B",
+		"country": "France",
+		"date": "12/15/2017",
+		"statistics": 0.5
+	}
+]

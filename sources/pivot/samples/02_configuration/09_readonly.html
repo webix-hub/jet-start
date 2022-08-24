@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Pivot: Read-only Mode</title>
+		<!-- Webix Library -->
+		<script type="text/javascript" src="../../codebase/webix/webix.js"></script>
+		<link
+			rel="stylesheet"
+			type="text/css"
+			href="../../codebase/webix/webix.css"
+		/>
+
+		<!-- pivot -->
+		<script type="text/javascript" src="../../codebase/pivot.js"></script>
+		<link rel="stylesheet" type="text/css" href="../../codebase/pivot.css" />
+	</head>
+	<body>
+		<script>
+			webix.ready(function() {
+				if (!webix.env.touch && webix.env.scrollSize) webix.CustomScroll.init();
+
+				webix.ui({
+					type: "space",
+					rows: [
+						{
+							view: "switch",
+							label: "Readonly",
+							value: 1,
+							click: function() {
+								$$("pivot").getState().readonly = !!this.getValue();
+							},
+						},
+						{
+							view: "pivot",
+							id: "pivot",
+							structure: {
+								rows: ["form", "name"],
+								columns: ["year"],
+								values: [{ name: "oil", operation: ["min", "sum"] }],
+								filters: [
+									{ name: "form" },
+									{ name: "name" },
+									{ name: "continent" },
+								],
+							},
+							readonly: true,
+							url: "../common/data.json",
+						},
+					],
+				});
+			});
+		</script>
+	</body>
+</html>

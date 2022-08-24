@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Pivot: Data With Dates</title>
+		<!-- Webix Library -->
+		<script type="text/javascript" src="../../codebase/webix/webix.js"></script>
+		<link
+			rel="stylesheet"
+			type="text/css"
+			href="../../codebase/webix/webix.css"
+		/>
+
+		<!-- pivot -->
+		<script type="text/javascript" src="../../codebase/pivot.js"></script>
+		<link rel="stylesheet" type="text/css" href="../../codebase/pivot.css" />
+	</head>
+	<body>
+		<script>
+			webix.ready(function() {
+				if (!webix.env.touch && webix.env.scrollSize) webix.CustomScroll.init();
+
+				webix.ui({
+					view: "pivot",
+					structure: {
+						rows: ["client"],
+						filters: [{ name: "date" }],
+						columns: ["date"],
+						values: [{ name: "statistics", operation: ["min", "max"] }],
+					},
+					predicates: {
+						date: webix.Date.dateToStr(webix.i18n.dateFormat),
+					},
+					url: "../common/dateData.json",
+					fields: [
+						{ id: "client", value: "client", type: "text" },
+						{ id: "company", value: "company", type: "text" },
+						{ id: "country", value: "country", type: "text" },
+						{ id: "date", value: "date", type: "date", predicate: "date" },
+						{ id: "statistics", value: "statistics", type: "number" },
+					],
+				});
+			});
+		</script>
+	</body>
+</html>

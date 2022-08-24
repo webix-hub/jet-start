@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Localization: Switching Locales</title>
+		<!-- Webix Library -->
+		<script type="text/javascript" src="../../codebase/webix/webix.js"></script>
+		<link
+			rel="stylesheet"
+			type="text/css"
+			href="../../codebase/webix/webix.css"
+		/>
+
+		<!-- pivot -->
+		<script type="text/javascript" src="../../codebase/pivot.js"></script>
+		<link rel="stylesheet" type="text/css" href="../../codebase/pivot.css" />
+
+		<script src="../common/ruLocale.js"></script>
+		<script src="../common/itLocale.js"></script>
+	</head>
+	<body>
+		<script>
+			webix.ready(function() {
+				// use custom scrolls, optional
+				if (!webix.env.touch && webix.env.scrollSize) webix.CustomScroll.init();
+
+				const data = {
+					view: "pivot",
+					id: "pivot",
+					locale: {
+						lang: "en",
+						webix: {
+							// switch all webix widgets to the selected locale
+							en: "en-US",
+							ru: "ru-RU",
+							it: "it-IT",
+						},
+					},
+					structure: {
+						rows: ["form", "name"],
+						columns: ["year"],
+						values: [
+							{ name: "oil", operation: ["min", "sum"] },
+							{ operation: "sum(oil) + sum(balance)" },
+						],
+					},
+					url: "../common/data.json",
+				};
+
+				pivot.locales.ru = ruLocale;
+				pivot.locales.it = itLocale;
+
+				const toolbar = {
+					cols: [
+						{
+							view: "segmented",
+							options: ["en", "ru", "it"],
+							width: 250,
+							click: function() {
+								const locale = $$("pivot").getService("locale");
+								locale.setLang(this.getValue());
+							},
+						},
+					],
+				};
+
+				webix.ui({
+					type: "wide",
+					rows: [toolbar, data],
+				});
+			});
+		</script>
+	</body>
+</html>

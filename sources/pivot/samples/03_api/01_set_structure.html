@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Pivot: Setting/Getting Structure</title>
+		<!-- Webix Library -->
+		<script type="text/javascript" src="../../codebase/webix/webix.js"></script>
+		<link
+			rel="stylesheet"
+			type="text/css"
+			href="../../codebase/webix/webix.css"
+		/>
+
+		<!-- pivot -->
+		<script type="text/javascript" src="../../codebase/pivot.js"></script>
+		<link rel="stylesheet" type="text/css" href="../../codebase/pivot.css" />
+	</head>
+	<body>
+		<script>
+			webix.ready(function() {
+				if (!webix.env.touch && webix.env.scrollSize) webix.CustomScroll.init();
+
+				var structures = [
+					{
+						label: "GDP/Oil by forms/countries/years",
+						structure: {
+							rows: ["form", "name"],
+							columns: ["year"],
+							values: [
+								{ name: "gdp", operation: "sum" },
+								{ name: "oil", operation: "sum" },
+							],
+							filters: [],
+						},
+					},
+					{
+						label: "Oil by forms/continents",
+						structure: {
+							rows: ["form"],
+							columns: ["continent"],
+							values: [{ name: "oil", operation: "max" }],
+							filters: [{ name: "name" }],
+						},
+					},
+					{
+						label: "Balance by years/forms/continents",
+						structure: {
+							rows: ["year"],
+							columns: ["form", "continent"],
+							values: [{ name: "balance", operation: "sum" }],
+							filters: [{ name: "name" }],
+						},
+					},
+					{
+						label: "Balance, GDP, Oil by years/forms",
+						structure: {
+							rows: ["year"],
+							columns: ["form"],
+							values: [
+								{ name: "balance", operation: "max" },
+								{ name: "gdp", operation: "max" },
+								{ name: "oil", operation: "max" },
+							],
+							filters: [{ name: "name" }],
+						},
+					},
+					{
+						label: "Balance, GDP, Oil by countries/years",
+						structure: {
+							rows: ["name"],
+							columns: ["year"],
+							values: [
+								{ name: "balance", operation: "max" },
+								{ name: "gdp", operation: "max" },
+								{ name: "oil", operation: "max" },
+							],
+							filters: [{ name: "form" }],
+						},
+					},
+				];
+
+				webix.ui({
+					cols: [
+						{
+							view: "pivot",
+							id: "pivot",
+							structure: {
+								rows: ["form", "name"],
+								columns: ["year"],
+								values: [{ name: "oil", operation: ["min", "sum"] }],
+							},
+							url: "../common/data.json",
+						},
+						{ view: "resizer" },
+						{
+							type: "clean",
+							rows: [
+								{ template: "Click to load structure", type: "header" },
+								{
+									view: "list",
+									id: "structures",
+									data: structures,
+									template: "#label#",
+									width: 250,
+									select: true,
+								},
+								{ view: "textarea", readonly: true, id: "result" },
+								{
+									view: "toolbar",
+									cols: [{ view: "button", id: "get", label: "Get structure" }],
+								},
+							],
+						},
+					],
+				});
+
+				$$("structures").attachEvent("onItemClick", function(id) {
+					var str = webix.copy(this.getItem(id).structure);
+					$$("pivot").setStructure(str);
+				});
+
+				$$("get").attachEvent("onItemClick", function() {
+					var str = $$("pivot").getStructure();
+					$$("result").setValue(JSON.stringify(str, 0, 1));
+				});
+			});
+		</script>
+	</body>
+</html>

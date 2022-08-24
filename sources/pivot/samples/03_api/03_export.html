@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Pivot: Export View</title>
+		<!-- Webix Library -->
+		<script type="text/javascript" src="../../codebase/webix/webix.js"></script>
+		<link
+			rel="stylesheet"
+			type="text/css"
+			href="../../codebase/webix/webix.css"
+		/>
+
+		<!-- pivot -->
+		<script type="text/javascript" src="../../codebase/pivot.js"></script>
+		<link rel="stylesheet" type="text/css" href="../../codebase/pivot.css" />
+	</head>
+	<body>
+		<script>
+			webix.ready(function() {
+				if (!webix.env.touch && webix.env.scrollSize) webix.CustomScroll.init();
+
+				webix.ui({
+					rows: [
+						{
+							cols: [
+								{
+									view: "button",
+									label: "Export to PDF",
+									click: () =>
+										webix.toPDF("pivot", {
+											autowidth: true,
+											styles: true,
+										}),
+								},
+								{
+									view: "button",
+									label: "Export to Excel",
+									click: () =>
+										webix.toExcel("pivot", { styles: true, spans: true }),
+								},
+								{
+									view: "button",
+									label: "Export to CSV",
+									click: () => webix.toCSV("pivot"),
+								},
+								{
+									view: "button",
+									label: "Export to PNG",
+									click: () => webix.toPNG("pivot"),
+								},
+							],
+						},
+						{
+							view: "pivot",
+							id: "pivot",
+							structure: {
+								rows: ["form", "name"],
+								columns: ["year"],
+								values: [{ name: "oil", operation: ["max", "sum"] }],
+							},
+							url: "../common/data.json",
+						},
+					],
+				});
+			});
+		</script>
+	</body>
+</html>

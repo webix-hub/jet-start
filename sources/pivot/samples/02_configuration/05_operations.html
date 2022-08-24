@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Pivot: Operations</title>
+		<!-- Webix Library -->
+		<script type="text/javascript" src="../../codebase/webix/webix.js"></script>
+		<link
+			rel="stylesheet"
+			type="text/css"
+			href="../../codebase/webix/webix.css"
+		/>
+
+		<!-- pivot -->
+		<script type="text/javascript" src="../../codebase/pivot.js"></script>
+		<link rel="stylesheet" type="text/css" href="../../codebase/pivot.css" />
+	</head>
+	<body>
+		<script>
+			webix.ready(function() {
+				if (!webix.env.touch && webix.env.scrollSize) webix.CustomScroll.init();
+
+				webix.ui({
+					view: "pivot",
+					columnWidth: 200,
+					structure: {
+						rows: ["form", "name"],
+						columns: ["year"],
+						values: [
+							// 1. single operation for a single field
+							{ name: "oil", operation: ["sum", "max"] },
+							// same as
+							//{ name: "oil", operation: "sum" },
+							//{ name: "oil", operation: "max" },
+
+							//2. single operation combining several fields - wavg
+							// wavg(gdp, balance)
+							{ name: ["gdp", "year"], operation: "wavg" },
+
+							//3. custom formula with operations
+							// sum(gdp) + sum(balance)
+							// no name field as we cannot decide for sure
+							{ operation: "sum(oil) + sum(balance)" },
+						],
+					},
+					url: "../common/data.json",
+				});
+			});
+		</script>
+	</body>
+</html>
