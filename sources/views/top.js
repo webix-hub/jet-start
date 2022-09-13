@@ -4,6 +4,18 @@ import {JetView, plugins} from "webix-jet";
 
 export default class TopView extends JetView{
 	config(){
+		const { _, getLang, setLang } = this.app.getService("locale");
+		var locales = {
+			view:"toolbar",
+			cols:[
+				{ view:"button", value:_("hello"), width: 200 },
+				{},
+				{ view:"segmented", options:["en", "de"], value: getLang(), width: 200, on:{
+					onChange: (value) => setLang(value)
+				}}
+			]
+		};
+
 		var header = {
 			type:"header", template:this.app.config.name, css:"webix_header app_header"
 		};
@@ -28,7 +40,9 @@ export default class TopView extends JetView{
 			]
 		};
 
-		return ui;
+		return {
+			rows:[ locales, ui ]
+		};
 	}
 	init(){
 		this.use(plugins.Menu, "top:menu");

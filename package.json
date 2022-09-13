@@ -6,10 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint sources/",
-    "build": "webpack --env production",
-    "module": "webpack --env production --env module",
-    "standalone": "webpack --env production --env module --env standalone",
-    "start": "webpack-dev-server --open"
+    "build": "vite build",
+    "start": "vite"
   },
   "keywords": [
     "webix",
@@ -17,22 +15,8 @@
   ],
   "license": "MIT",
   "devDependencies": {
-    "@babel/core": "^7.16.0",
-    "@babel/plugin-proposal-object-rest-spread": "^7.16.0",
-    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
-    "@babel/plugin-transform-runtime": "^7.16.0",
-    "@babel/preset-env": "^7.16.0",
-    "babel-loader": "^8.2.3",
-    "css-loader": "^6.5.0",
-    "eslint": "^8.1.0",
-    "file-loader": "^6.2.0",
-    "less": "^4.1.2",
-    "less-loader": "^10.2.0",
-    "mini-css-extract-plugin": "^2.4.3",
-    "url-loader": "^4.1.1",
-    "webpack": "^5.61.0",
-    "webpack-cli": "^4.9.1",
-    "webpack-dev-server": "^4.4.0"
+    "eslint": "^8.23.1",
+    "vite": "^3.1.0"
   },
   "dependencies": {
     "webix-jet": "^2.1.3"

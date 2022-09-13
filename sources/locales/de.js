@@ -1,5 +1,5 @@
 const words = {
-    hello: 'Hello world!'
+    hello: 'Hallo Welt!'
 }
 
 export default words;
