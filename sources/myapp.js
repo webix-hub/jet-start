@@ -23,12 +23,11 @@ export default class MyApp extends JetApp{
 
 		super({ ...defaults, ...config });
 
-		// patch locales loader, optional
-		this.use(plugins.Locale, { path: false, storage: this.webix.storage.session });
-		const ls = this.getService("locale");
-		ls.setLang = (lang, silent) =>
-			words(lang).then(w => ls.setLangData(lang, w, silent));
-		ls.setLang(ls.getLang(), true);
+		// locales plugin, optional
+		this.use(plugins.Locale, {
+			path: words,
+			storage: this.webix.storage.session
+		});
 	}
 }
 
