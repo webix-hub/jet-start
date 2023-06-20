@@ -815,10 +815,10 @@ vite@^4.3.8:
   optionalDependencies:
     fsevents "~2.3.2"
 
-webix-jet@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/webix-jet/-/webix-jet-3.0.0.tgz#fafe40242ecb2bbb7d8473b029680a4f01f0c86c"
-  integrity sha512-y/TEh0ECB/iZvkNCIGrmmHpBouzE0pSR+WJxWLHCy3sFpyTe9xJ4AUHJm0VxwS6F8h4f2SVowi91oJo6Ds38ng==
+webix-jet@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/webix-jet/-/webix-jet-3.0.1.tgz#b3b227e2978277eb38e0a07176069b6dc153abad"
+  integrity sha512-dqF5+i/wow0Hz5LvNEd7Bw9CTlzQMG8B0ujG0gbrHRPDvRGGJTzbCqycEi5OuqxBRlHsgobBymbOrnBIwuOXSA==
 
 which@^2.0.1:
   version "2.0.2"

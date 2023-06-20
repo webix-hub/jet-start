@@ -19,6 +19,6 @@
     "eslint": "^8.41.0"
   },
   "dependencies": {
-    "webix-jet": "^3.0.0"
+    "webix-jet": "^3.0.1"
   }
 }

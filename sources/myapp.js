@@ -12,9 +12,9 @@ const words = name => locales[`./locales/${name}.js`]().then(x => x.default);
 export default class MyApp extends JetApp{
 	constructor(config){
 		const defaults = {
-			id 		: import.meta.env.APPNAME,
-			version : import.meta.env.VERSION,
-			router 	: import.meta.env.BUILD_AS_MODULE ? EmptyRouter : HashRouter,
+			id 		: import.meta.env.VITE_APPNAME,
+			version : import.meta.env.VITE_VERSION,
+			router 	: import.meta.env.VITE_BUILD_AS_MODULE ? EmptyRouter : HashRouter,
 			debug 	: !import.meta.env.PROD,
 			start 	: "/top/start",
 			// set custom view loader, mandatory
@@ -31,6 +31,6 @@ export default class MyApp extends JetApp{
 	}
 }
 
-if (!import.meta.env.BUILD_AS_MODULE){
+if (!import.meta.env.VITE_BUILD_AS_MODULE){
 	webix.ready(() => new MyApp().render() );
 }
